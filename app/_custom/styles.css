@@ -22,13 +22,6 @@
     }
   }
   
-.swingimage {
-    -webkit-transform-origin: 50% 0;
-    transform-origin: 50% 0;
-    -webkit-animation: swinging 4.5s ease-in-out forwards infinite;
-    animation: swinging 4.5s ease-in-out forwards infinite;
-  }
-
   .swingimage1 {
     -webkit-transform-origin: 50% 0;
     transform-origin: 50% 0;
