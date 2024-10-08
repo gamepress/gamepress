@@ -62,14 +62,12 @@ export default function SiteLayout() {
                      <div className="flex flex-col justify-center items-center gap-4">
                         <div className="flex items-center pb-5">
                            <Image
-                              className="h-10 hidden dark:block"
-                              height={64}
-                              url="https://static.mana.wiki/GamePressNewLogo.webp"
+                              className="h-8 tablet:h-10 hidden dark:block"
+                              url="https://static.mana.wiki/Type_white.png"
                            />
                            <Image
-                              className="h-10 dark:hidden"
-                              height={64}
-                              url="https://static.mana.wiki/wLO62aTzTU1_6Img2rvuBP.png"
+                              className="h-8 tablet:h-10 dark:hidden"
+                              url="https://static.mana.wiki/Type_indigo.png"
                            />
                         </div>
                         {/* <div className="text-sm font-mono text-1 pb-6">
