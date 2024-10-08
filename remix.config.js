@@ -55,7 +55,7 @@ async function manaRoutes(defineRoutes) {
       "routes/_home+/_layout": {
          id: "routes/_home+/_layout",
          parentId: "root",
-         file: "routes/_site+/_layout.tsx",
+         file: "_custom/routes/_site+/_layout.tsx",
       },
       "routes/_home+/_index": {
          index: true,

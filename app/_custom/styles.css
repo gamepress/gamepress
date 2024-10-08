@@ -1,0 +1,44 @@
+@-webkit-keyframes swinging {
+    0% {
+      -webkit-transform: rotate(8deg);
+    }
+    50% {
+      -webkit-transform: rotate(-5deg);
+    }
+    100% {
+      -webkit-transform: rotate(8deg);
+    }
+  }
+  
+  @keyframes swinging {
+    0% {
+      transform: rotate(8deg);
+    }
+    50% {
+      transform: rotate(-5deg);
+    }
+    100% {
+      transform: rotate(8deg);
+    }
+  }
+  
+.swingimage {
+    -webkit-transform-origin: 50% 0;
+    transform-origin: 50% 0;
+    -webkit-animation: swinging 4.5s ease-in-out forwards infinite;
+    animation: swinging 4.5s ease-in-out forwards infinite;
+  }
+
+  .swingimage1 {
+    -webkit-transform-origin: 50% 0;
+    transform-origin: 50% 0;
+    -webkit-animation: swinging 3.5s ease-in-out forwards infinite;
+    animation: swinging 3.5s ease-in-out forwards infinite;
+  }
+
+  .swingimage2 {
+    -webkit-transform-origin: 50% 0;
+    transform-origin: 50% 0;
+    -webkit-animation: swinging 2.5s ease-in-out forwards infinite;
+    animation: swinging 2.5s ease-in-out forwards infinite;
+  }

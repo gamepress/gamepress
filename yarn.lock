@@ -11141,6 +11141,11 @@ react-transition-group@^4.3.0, react-transition-group@^4.4.2:
     loose-envify "^1.4.0"
     prop-types "^15.6.2"
 
+react-wavify@^1.11.1:
+  version "1.11.1"
+  resolved "https://registry.yarnpkg.com/react-wavify/-/react-wavify-1.11.1.tgz#4c632d9903686c68e222e59bf669aa2c08e31143"
+  integrity sha512-9MWGSwdVBri2XsegpysGyxWAeqIKdikwj+6Dg2Ssi3xFoY5HUVDiPbEZ62ZP30DefKE5IzWKNdFjyIEJfVikhw==
+
 react-zorm@^0.9.0:
   version "0.9.0"
   resolved "https://registry.yarnpkg.com/react-zorm/-/react-zorm-0.9.0.tgz#bb696ed0917bcbec3d1857309dbad5c4577a018c"
