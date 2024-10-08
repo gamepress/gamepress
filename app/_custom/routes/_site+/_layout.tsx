@@ -60,7 +60,7 @@ export default function SiteLayout() {
                >
                   <div className="mx-auto w-full p-4 laptop:max-w-[800px]">
                      <div className="flex flex-col justify-center items-center gap-4">
-                        <div className="flex items-center pb-5">
+                        <div className="flex items-center pb-4">
                            <Image
                               className="h-8 tablet:h-10 hidden dark:block"
                               url="https://static.mana.wiki/Type_white.png"
@@ -70,9 +70,6 @@ export default function SiteLayout() {
                               url="https://static.mana.wiki/Type_indigo.png"
                            />
                         </div>
-                        {/* <div className="text-sm font-mono text-1 pb-6">
-                           Better Wikis for Mobile Games
-                        </div> */}
                         <div className="inline-grid grid-cols-1 gap-4 tablet:grid-cols-3">
                            <Link
                               to="https://pokemongo.gamepress.gg"
@@ -128,16 +125,16 @@ export default function SiteLayout() {
                </div>
                <div className="w-full dark:bg-gray-900 bg-amber-50 relative z-50">
                   <div className="relative mx-auto laptop:max-w-screen-tablet">
-                     <div className="absolute left-1/4 transform -translate-x-1/2 -top-16 z-20 rotate-[5deg]">
+                     <div className="absolute left-1/4 transform -translate-x-1/2 -top-4 tablet:-top-16 z-20 rotate-[5deg]">
                         <Image
-                           className="h-52 swingimage1"
+                           className="h-40 tablet:h-52 swingimage1"
                            alt="Narwhale Party"
                            url="https://static.mana.wiki/Nalu_party.png"
                         />
                      </div>
-                     <div className="absolute right-1/4 transform translate-x-1/2 -top-3 z-50 rotate-[5deg]">
+                     <div className="absolute right-1/4 transform translate-x-1/2 top-4 tablet:-top-3 z-50 rotate-[5deg]">
                         <Image
-                           className="h-52 swingimage2"
+                           className="h-40 tablet:h-52 swingimage2"
                            alt="Narwhale Developer"
                            url="https://static.mana.wiki/Nalu_developer.png"
                         />
