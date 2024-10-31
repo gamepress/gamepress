@@ -8,6 +8,7 @@ import {
    type DialogProps as HeadlessDialogProps,
 } from "@headlessui/react";
 import clsx from "clsx";
+import { Icon } from "./Icon";
 
 const sizes = {
    xs: "tablet:max-w-xs",
@@ -65,7 +66,7 @@ export function Dialog({
                      className={clsx(
                         className,
                         sizes[size],
-                        "row-start-2 w-full min-w-0 rounded-t-3xl bg-3 p-[--gutter] shadow-lg ring-1 ring-zinc-950/10 [--gutter:theme(spacing.5)] tablet:mb-auto tablet:rounded-2xl  dark:ring-white/20 forced-colors:outline",
+                        "row-start-2 w-full min-w-0 rounded-t-3xl max-tablet:pb-20 bg-3 p-[--gutter] shadow-lg ring-1 ring-zinc-950/10 [--gutter:theme(spacing.5)] tablet:mb-auto tablet:rounded-2xl  dark:ring-white/20 forced-colors:outline",
                      )}
                      enter="ease-out duration-100"
                      enterFrom="tablet:scale-95"
@@ -76,6 +77,16 @@ export function Dialog({
                   >
                      {children}
                   </HeadlessTransitionChild>
+                  <div className="z-50 flex tablet:hidden items-center justify-center fixed bottom-0 left-0 w-full px-3 pb-6">
+                     <button
+                        onClick={() => onClose(false)}
+                        className="z-50 inline-flex tablet:hidden items-center gap-1 text-zinc-100 font-semibold dark:text-zinc-900
+                     text-sm justify-between dark:bg-zinc-100 bg-zinc-900 py-2 rounded-full pl-3 pr-4 shadow-lg shadow-zinc-200  dark:shadow-zinc-900/50"
+                     >
+                        <span>Close</span>
+                        <Icon name="chevron-down" size={16} />
+                     </button>
+                  </div>
                </div>
             </HeadlessTransitionChild>
          </HeadlessDialog>

@@ -26,7 +26,7 @@ function Header() {
             "z-50 w-full absolute",
          )}
       >
-         <div className="mx-auto max-w-5xl p-4 flex items-center justify-between w-full">
+         <div className="mx-auto max-w-6xl p-4 flex items-center justify-between w-full">
             <Link className="block text-white" to="/" aria-label="Mana Wiki">
                <LogoFull />
             </Link>
@@ -52,7 +52,7 @@ function Header() {
                      <Link
                         className="flex h-[34px] items-center justify-center rounded-lg border border-zinc-700 bg-zinc-800 px-3 text-center 
                                     text-xs font-extrabold uppercase text-white shadow-sm shadow-zinc-950"
-                        to={`/login?redirectTo=/home`}
+                        to="/login"
                      >
                         Login
                      </Link>
