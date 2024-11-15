@@ -25,6 +25,7 @@ export function ListTop({
    searchPlaceholder,
    setViewMode,
    filters,
+   hideViewMode = false,
 }: {
    collection?: Collection;
    setGlobalFilter: Dispatch<SetStateAction<string>>;
@@ -34,34 +35,37 @@ export function ListTop({
    searchPlaceholder?: string;
    setViewMode: Dispatch<SetStateAction<"list" | "grid">>;
    filters?: TableFilters;
+   hideViewMode?: boolean;
 }) {
    return (
       <div className="flex items-center justify-between w-full py-3 gap-3 sticky z-20 top-[61px] bg-3">
-         <div
-            className="overflow-hidden bg-3 dark:border-zinc-600 shadow-sm dark:shadow-zinc-800/80 rounded-md dark:divide-zinc-600
+         {!hideViewMode && (
+            <div
+               className="overflow-hidden bg-3 dark:border-zinc-600 shadow-sm dark:shadow-zinc-800/80 rounded-md dark:divide-zinc-600
             border border-zinc-300/80 h-9 grid grid-cols-2 flex-none divide-x divide-zinc-300/80"
-         >
-            <button
-               onClick={() => setViewMode("list")}
-               className={clsx(
-                  viewType == "list" &&
-                     "bg-blue-50 dark:bg-gray-800 text-blue-500 dark:text-blue-500",
-                  "px-3 text-1",
-               )}
             >
-               <Icon name="rows" size={15} />
-            </button>
-            <button
-               onClick={() => setViewMode("grid")}
-               className={clsx(
-                  viewType == "grid" &&
-                     "bg-blue-50 dark:bg-gray-800 text-blue-500 dark:text-blue-500",
-                  "px-3 text-1",
-               )}
-            >
-               <Icon name="layout-grid" size={15} />
-            </button>
-         </div>
+               <button
+                  onClick={() => setViewMode("list")}
+                  className={clsx(
+                     viewType == "list" &&
+                        "bg-blue-50 dark:bg-gray-800 text-blue-500 dark:text-blue-500",
+                     "px-3 text-1",
+                  )}
+               >
+                  <Icon name="rows" size={15} />
+               </button>
+               <button
+                  onClick={() => setViewMode("grid")}
+                  className={clsx(
+                     viewType == "grid" &&
+                        "bg-blue-50 dark:bg-gray-800 text-blue-500 dark:text-blue-500",
+                     "px-3 text-1",
+                  )}
+               >
+                  <Icon name="layout-grid" size={15} />
+               </button>
+            </div>
+         )}
          <TableSearchSection
             setGlobalFilter={setGlobalFilter}
             searchPlaceholder={searchPlaceholder}
@@ -189,9 +193,9 @@ export function FilterSection({
             >
                <>
                   {cFilters && cFilters.length > 0 && (
-                     <div className="max-laptop:pb-4 laptop:absolute laptop:top-3.5">
+                     <div className="max-laptop:pb-4 laptop:absolute laptop:top-3">
                         <Button
-                           className="text-xs max-laptop:py-1.5 max-laptop:pl-2 !laptop:p-0 !laptop:size-7"
+                           className="!h-9"
                            color="light/zinc"
                            onClick={() =>
                               setCFilters &&
@@ -201,13 +205,13 @@ export function FilterSection({
                            <Icon
                               title="Clear Filters"
                               name="refresh-ccw"
-                              size={12}
+                              size={14}
                            />
-                           <span className="laptop:hidden">Refresh</span>
+                           <span className="">Reset</span>
                         </Button>
                      </div>
                   )}
-                  <div className="space-y-6">
+                  <div className="space-y-6 pt-3">
                      {filters.map((filterRow) => {
                         return (
                            <section key={filterRow.id}>
