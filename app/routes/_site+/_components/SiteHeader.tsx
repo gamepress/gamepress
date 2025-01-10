@@ -8,7 +8,6 @@ import {
    Transition,
 } from "@headlessui/react";
 import { Link, useFetcher, useLoaderData } from "@remix-run/react";
-import { InstantSearch } from "react-instantsearch";
 
 import { DotLoader } from "~/components/DotLoader";
 import { Icon } from "~/components/Icon";
@@ -23,8 +22,7 @@ import { isAdding } from "~/utils/form";
 
 import { MenuTrayContent, MobileTray } from "./MobileTray";
 import { DarkModeToggle } from "../action+/theme-toggle";
-import { searchClient } from "../search/_search";
-import { Autocomplete } from "../search/components/Autocomplete";
+import { SiteSearch } from "../search/SiteSearch";
 
 export function SiteHeader({
    setPrimaryMenuOpen,
@@ -61,7 +59,7 @@ export function SiteHeader({
                      >
                         <div
                            className="dark:bg-dark450 border dark:border-zinc-600 shadow-1 bg-zinc-50 overflow-hidden flex-none
-                              text-1 flex size-11 items-center justify-center dark:group-hover:border-zinc-600 border-zinc-300/60
+                              text-1 flex size-10 items-center justify-center dark:group-hover:border-zinc-600 border-zinc-300/60
                               rounded-xl shadow-sm transition duration-300 active:translate-y-0.5 group-hover:border-zinc-300"
                         >
                            {site?.icon?.url ? (
@@ -78,21 +76,10 @@ export function SiteHeader({
                               </>
                            )}
                         </div>
-                        <div className="truncate pl-3 text-sm">
+                        <div className="truncate pl-3 font-header">
                            <div className="font-bold truncate group-hover:underline decoration-zinc-300 underline-offset-2 dark:decoration-zinc-600">
                               {site.name}
                            </div>
-                           {site?.followers && (
-                              <div className="text-[10px] flex items-center gap-1">
-                                 <Icon
-                                    name="users-2"
-                                    className="text-1 size-3"
-                                 />
-                                 <span className="dark:text-zinc-500 text-zinc-400">
-                                    {site?.followers}
-                                 </span>
-                              </div>
-                           )}
                         </div>
                      </Link>
                   </div>
@@ -245,9 +232,7 @@ export function SiteHeader({
                         <DarkModeToggle className="size-5" />
                      </div>
                      <div className="flex items-center justify-center gap-2 hover:border-zinc-400 shadow-sm bg-zinc-100 dark:bg-dark500 border border-zinc-300 dark:border-zinc-500 dark:hover:border-zinc-400 rounded-full size-10">
-                        <InstantSearch searchClient={searchClient}>
-                           <Autocomplete site={site} />
-                        </InstantSearch>
+                        <SiteSearch site={site} />
                      </div>
                      <button
                         className="dark:bg-zinc-600 shadow-1 flex size-10 items-center 

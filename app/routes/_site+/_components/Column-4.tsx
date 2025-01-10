@@ -1,4 +1,4 @@
-import { Fragment } from "react";
+import { Fragment, useState } from "react";
 
 import { Tab, TabGroup, TabList, TabPanel, TabPanels } from "@headlessui/react";
 import { Link, useLoaderData } from "@remix-run/react";
@@ -19,6 +19,8 @@ import { useTheme } from "~/utils/client-hints";
 import { Contributors } from "./Contributors";
 import { AdUnit } from "./RampUnit";
 import { DarkModeToggle } from "../action+/theme-toggle";
+import { SideMenu } from "./sidemenu/SideMenu";
+import { ViewSideMenu } from "./sidemenu/ViewSideMenu";
 
 function AboutSection({
    site,
@@ -92,6 +94,8 @@ export function ColumnFour() {
       groupedTrendingPages.push(trendingPages.slice(i, i + 10));
    }
 
+   const [editMode, setEditMode] = useState(false);
+
    return (
       <section className="relative laptop:z-50 laptop:block">
          {site.enableAds ? (
@@ -112,19 +116,7 @@ export function ColumnFour() {
          >
             <div className="flex flex-col justify-between flex-grow">
                <div>
-                  {/* <div>Remove Ads</div> */}
-                  <section className="grid grid-cols-3 gap-4 py-4 relative z-20 max-laptop:max-w-[728px] max-tablet:px-4 max-laptop:mx-auto mx-4 max-laptop:w-full">
-                     <div
-                        className="dark:bg-dark400 dark:laptop:bg-bg3Dark max-laptop:dark:border-zinc-600/50 bg-white max-laptop:dark:shadow-zinc-800/60
-                       dark:laptop:shadow-zinc-800 shadow-sm border border-color px-3 py-1.5 rounded-lg"
-                     >
-                        <div className="text-xs font-bold text-center">
-                           {site.followers ? site.followers : "-"}
-                        </div>
-                        <div className="text-xs text-1 text-center">
-                           Followers
-                        </div>
-                     </div>
+                  <section className="grid grid-cols-2 gap-4 py-4 relative z-20 max-laptop:max-w-[728px] max-tablet:px-4 max-laptop:mx-auto mx-4 max-laptop:w-full">
                      <div
                         className="dark:bg-dark400 dark:laptop:bg-bg3Dark max-laptop:dark:border-zinc-600/50 bg-white max-laptop:dark:shadow-zinc-800/60
                        dark:laptop:shadow-zinc-800 shadow-sm border border-color px-3 py-1.5 rounded-lg"
@@ -336,7 +328,10 @@ export function ColumnFour() {
                   </div>
                )}
             </LoggedOut>
-            <div className="max-laptop:py-4 border-t border-color laptop:h-[54px] justify-center bg-zinc-50 laptop:bg-white dark:bg-bg2Dark flex items-center px-3.5 laptop:w-[333px] z-40 laptop:fixed bottom-0 right-0">
+            <div className="tablet:hidden z-10 relative border-t border-color bg-2 pb-3">
+               <ViewSideMenu site={site} />
+            </div>
+            <div className="max-laptop:py-4 border-t border-color laptop:h-[54px] justify-center bg-white dark:bg-bg3Dark flex items-center px-3.5 laptop:w-[333px] z-40 laptop:fixed bottom-0 right-0">
                <div className="justify-between flex items-center max-laptop:max-w-[728px]  w-full gap-3">
                   {!site.isWhiteLabel && (
                      <Link
@@ -366,6 +361,7 @@ export function ColumnFour() {
                                        ? site?.logoLightImage?.url
                                        : site?.logoDarkImage?.url
                                  }
+                                 alt={site?.name}
                                  loading="lazy"
                               />
                            </Link>
