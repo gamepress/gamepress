@@ -70,7 +70,7 @@ export default function SiteLayout() {
                               url="https://static.mana.wiki/Type_indigo.png"
                            />
                         </div>
-                        <div className="inline-grid grid-cols-1 gap-4 tablet:grid-cols-3">
+                        <div className="inline-grid grid-cols-1 gap-4 tablet:grid-cols-2">
                            <Link
                               to="https://pokemongo.gamepress.gg"
                               className="rounded-xl dark:border-gray-700 dark:shadow-black/50 border-2 dark:bg-gray-900 p-2.5 tablet:p-4 text-center shadow-sm 
@@ -103,7 +103,7 @@ export default function SiteLayout() {
                                  Fate Grand Order
                               </div>
                            </Link>
-                           <Link
+                           {/* <Link
                               to="https://ak.gamepress.gg"
                               className="rounded-xl dark:border-gray-700 dark:shadow-black/50 border-2 dark:bg-gray-900 p-2.5 tablet:p-4 text-center shadow-sm 
                            transition dark:hover:shadow-gray-700 flex tablet:flex-col items-center gap-2 max-tablet:w-[300px] bg-zinc-50"
@@ -118,7 +118,7 @@ export default function SiteLayout() {
                               <div className="truncate text-sm font-bold dark:text-white">
                                  Arknights
                               </div>
-                           </Link>
+                           </Link> */}
                         </div>
                      </div>
                   </div>
